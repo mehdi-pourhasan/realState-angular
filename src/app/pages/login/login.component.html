@@ -8,15 +8,17 @@
                 data-aos-delay="200">
                 <div class="row">
                     <div class="col-12">
-                        <input type="text" class="form-control px-4" placeholder="User Name" />
+                        <input type="text" name="userName" [(ngModel)]="loginObj.userName" class="form-control px-4"
+                            placeholder="User Name" />
                     </div>
                     <div class="col-12 mt-4">
-                        <input type="password" class="form-control px-4" placeholder="Password" />
+                        <input type="password" name="password" [(ngModel)]="loginObj.password" class="form-control px-4"
+                            placeholder="Password" />
                     </div>
                 </div>
 
 
-                <button type="submit" class="btn btn-primary mt-4">Login</button>
+                <button type="submit" (click)="onLogin()" class="btn btn-primary mt-4">Login</button>
             </form>
         </div>
     </div>

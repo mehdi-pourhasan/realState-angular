@@ -10,4 +10,17 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'realstate';
+
+  loggedUserData: any;
+  constructor() {
+    const localData = localStorage.getItem('realUser');
+    if (localData != null) {
+      this.loggedUserData = JSON.parse(localData);
+    }
+  }
+
+  logOut() {
+    localStorage.removeItem('realUser');
+    this.loggedUserData = undefined;
+  }
 }

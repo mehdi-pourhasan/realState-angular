@@ -8,30 +8,38 @@
                 data-aos-delay="200">
                 <div class="row">
                     <div class="col-6">
-                        <input type="text" class="form-control px-4" placeholder="Full Name" />
+                        <input type="text" class="form-control px-4" placeholder="Full Name"
+                            [(ngModel)]="registerObj.fullName" name="fullName" />
                     </div>
                     <div class="col-6">
-                        <input type="text" class="form-control px-4" placeholder="Email-Id" />
-                    </div>
-                </div>
-                <div class="row pt-3 pb-3">
-                    <div class="col-6">
-                        <input type="text" class="form-control px-4" placeholder="User Name" />
-                    </div>
-                    <div class="col-6">
-                        <input type="text" class="form-control px-4" placeholder="Password" />
+                        <input type="text" [(ngModel)]="registerObj.emailId" name="emailId" class="form-control px-4"
+                            placeholder="Email-Id" />
                     </div>
                 </div>
                 <div class="row pt-3 pb-3">
                     <div class="col-6">
-                        <button type="submit" class="btn btn-white">Are You Agent</button>
+                        <input type="text" [(ngModel)]="registerObj.userName" name="userName" class="form-control px-4"
+                            placeholder="User Name" />
                     </div>
                     <div class="col-6">
-                        <button type="submit" class="btn btn-primary">Are you a Customer</button>
+                        <input type="text" [(ngModel)]="registerObj.password" name="password" class="form-control px-4"
+                            placeholder="Password" />
+                    </div>
+                </div>
+                <div class="row pt-3 pb-3">
+                    <div class="col-6">
+                        <button type="button" (click)="isAgent = true"
+                            [class]="isAgent ? 'btn btn-success' : 'btn btn-primary'">Are You
+                            Agent</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="button" (click)="isAgent = false"
+                            [class]=" !isAgent ? 'btn btn-success' : 'btn btn-primary'">Are you a
+                            Customer</button>
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="button" (click)="onRegister()" class="btn btn-primary">Register</button>
             </form>
         </div>
     </div>
