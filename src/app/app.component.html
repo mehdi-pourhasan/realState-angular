@@ -14,7 +14,9 @@
 
         <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
           <li class="active"><a routerLink="/home">Home</a></li>
+          @if (loggedUserData && loggedUserData.role === 'Agent') {
           <li class="active"><a routerLink="/propertyList">Properties</a></li>
+          }
           @if (loggedUserData) {
           <li><a>{{loggedUserData.userName}}</a></li>
           <li><a (click)="logOut()">Logout</a></li>

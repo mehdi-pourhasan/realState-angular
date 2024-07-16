@@ -24,6 +24,7 @@ export class LoginComponent {
       if (res.result) {
         alert('Login successfull');
         localStorage.setItem('realUser', JSON.stringify(res.data));
+        this.masterService.onLogin$.next(true);
         this.router.navigateByUrl('/home');
       } else {
         alert(res.message);

@@ -1,5 +1,13 @@
 <div class="">
+    @if (!isListView) {
     <div class="container pt-3">
+        <div class="row">
+            <div class="col-12 text-end">
+                <button [class]="isListView ? 'btn btn-sm  btn-success': 'btn btn-sm btn-secondary'"
+                    (click)="isListView = !isListView ">Toggle
+                    View</button>
+            </div>
+        </div>
         <div class="row justify-content-center align-items-center">
             <div class="col-lg-9 text-center">
                 <h1 class="heading" data-aos="fade-up">
@@ -50,29 +58,42 @@
             </div>
         </div>
     </div>
+    }@else {
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-end">
+                <button [class]="isListView ? 'btn btn-sm  btn-success': 'btn btn-sm btn-secondary'"
+                    (click)="isListView = !isListView ">Toggle
+                    View</button>
+            </div>
+        </div>
+        <table class="table table-bordered text-center mt-4 table-striped">
+            <thead>
+                <th>Sr.No</th>
+                <th>Thumbnail Image</th>
+                <th>Title</th>
+                <th>Property Type</th>
+                <th>Description</th>
+                <th>City</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button class="btn btn-sm btn-warning">Edit</button>
+                        <button class="btn  btn-sm btn-danger">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    }
+
+
 </div>
-<table class="table table-bordered text-center mt-4 table-striped">
-    <thead>
-        <th>Sr.No</th>
-        <th>Thumbnail Image</th>
-        <th>Title</th>
-        <th>Property Type</th>
-        <th>Description</th>
-        <th>City</th>
-        <th>Action</th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                <button class="btn btn-sm btn-warning">Edit</button>
-                <button class="btn  btn-sm btn-danger">Delete</button>
-            </td>
-        </tr>
-    </tbody>
-</table>

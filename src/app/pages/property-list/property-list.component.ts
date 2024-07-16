@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './property-list.component.html',
-  styleUrl: './property-list.component.css'
+  styleUrl: './property-list.component.css',
 })
 export class PropertyListComponent {
-
+  isListView: boolean = false;
 }
