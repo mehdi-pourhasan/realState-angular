@@ -17,43 +17,59 @@
                     data-aos-delay="200">
                     <div class="row">
                         <div class="col-12">
-                            <input type="text" class="form-control px-4" placeholder="Title" />
+                            <input type="text" name="title" [(ngModel)]="propertyObj.title" class="form-control px-4"
+                                placeholder="Title" />
+
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-6">
-                            <textarea name="" class="form-control px-4" placeholder="Description" id=""></textarea>
+                            <textarea name="description" [(ngModel)]="propertyObj.description" class="form-control px-4"
+                                placeholder="Description" id=""></textarea>
                         </div>
                         <div class="col-6">
-                            <textarea name="" class="form-control px-4" placeholder="Address" id=""></textarea>
+                            <textarea name="address" [(ngModel)]="propertyObj.address" class="form-control px-4"
+                                placeholder="Address" id=""></textarea>
                         </div>
                     </div>
                     <div class="row pt-3 pb-3">
                         <div class="col-4">
-                            <input type="text" class="form-control px-4" placeholder="City" />
+
+                            <input type="text" name="city" [(ngModel)]="propertyObj.city" class="form-control px-4"
+                                placeholder="City" />
                         </div>
                         <div class="col-4">
-                            <input type="text" class="form-control px-4" placeholder="State" />
+                            <input type="text" name="state" [(ngModel)]="propertyObj.state" class="form-control px-4"
+                                placeholder="State" />
                         </div>
                         <div class="col-4">
-                            <input type="text" class="form-control px-4" placeholder="Pincode" />
+                            <input type="text" name="pincode" [(ngModel)]="propertyObj.pincode"
+                                class="form-control px-4" placeholder="Pincode" />
                         </div>
                     </div>
                     <div class="row pt-3 pb-3">
                         <div class="col-6">
-                            <input type="text" class="form-control px-4" placeholder="Property Type" />
+                            <input type="text" name="propertyType" [(ngModel)]="propertyObj.propertyType"
+                                class="form-control px-4" placeholder="Property Type" />
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control px-4" placeholder="Price" />
+                            <input type="number" name="price" [(ngModel)]="propertyObj.price" class="form-control px-4"
+                                placeholder="Price" />
                         </div>
                     </div>
                     <div class="row pt-3 pb-3">
 
                         <div class="col-12">
-                            <input type="text" class="form-control px-4" placeholder="Thumbnail Image" />
+                            <input type="text" name="thumbnailImage" [(ngModel)]="propertyObj.thumbnailImage"
+                                class="form-control px-4" placeholder="Thumbnail Image" />
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-4">Add Property</button>
+                    @if (propertyObj.propertyId == 0) {
+                    <button type="button" (click)="createProperty()" class="btn btn-primary mt-4">Add Property</button>
+                    } @else {
+                    <button type="button" (click)="updateProperty()" class="btn btn-primary mt-4">update
+                        Property</button>
+                    }
                 </form>
             </div>
         </div>
@@ -78,18 +94,22 @@
                 <th>Action</th>
             </thead>
             <tbody>
+                @for (item of propertyList; track $index) {
                 <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{$index+1}}</td>
                     <td>
-                        <button class="btn btn-sm btn-warning">Edit</button>
-                        <button class="btn  btn-sm btn-danger">Delete</button>
+                        <img width="100px" height="100px" [src]="item.thumbnailImage" alt="Image">
+                    </td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.propertyType}}</td>
+                    <td>{{item.description}}</td>
+                    <td>{{item.city}}</td>
+                    <td>
+                        <button (click)="onEditProperty(item)" class="btn btn-sm btn-warning">Edit</button>
+                        <button class="btn  btn-sm btn-danger" (click)="onDeleteItem(item.propertyId)">Delete</button>
                     </td>
                 </tr>
+                }
             </tbody>
         </table>
     </div>

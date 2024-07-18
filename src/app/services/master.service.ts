@@ -22,4 +22,20 @@ export class MasterService {
   login(obj: any) {
     return this.http.post(`${this.apiUrl}login`, obj);
   }
+
+  addProperty(obj: any) {
+    return this.http.post(`${this.apiUrl}AddNewProperty`, obj);
+  }
+
+  getAllProperty() {
+    return this.http.get(`${this.apiUrl}GetAllProperty`);
+  }
+
+  deleteProperty(id: number) {
+    return this.http.delete(`${this.apiUrl}DeletePropertyId?propertyId=${id}`);
+  }
+
+  updateProperty(obj: any) {
+    return this.http.post(`${this.apiUrl}UpdateProperty`, obj);
+  }
 }
