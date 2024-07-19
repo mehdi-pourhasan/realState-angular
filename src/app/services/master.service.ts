@@ -38,4 +38,8 @@ export class MasterService {
   updateProperty(obj: any) {
     return this.http.post(`${this.apiUrl}UpdateProperty`, obj);
   }
+
+  makeEnquiry(obj: any) {
+    return this.http.post(`${this.apiUrl}AddNewEnquiry`, obj);
+  }
 }

@@ -42,7 +42,8 @@
 
                                             </div>
 
-                                            <a class="btn btn-primary py-2 px-3">Make an
+                                            <a (click)="openEnqModel(item.propertyId)"
+                                                class="btn btn-primary py-2 px-3">Make an
                                                 Enquiry</a>
                                         </div>
                                     </div>
@@ -58,6 +59,30 @@
 
 
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal " id="exampleModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Make an enquiry</h5>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <textarea class="form-control w-100" [(ngModel)]="enqObj.enquiryMessage"
+                        placeholder="Write your message"
+                        style="padding: 15px; border: none; outline: none; box-shadow: none; resize: none;"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    (click)="closeEnqModal()">Close</button>
+
+                <button type="button" (click)="makeEnq()" class="btn btn-primary">Submit Enquiry</button>
             </div>
         </div>
     </div>
